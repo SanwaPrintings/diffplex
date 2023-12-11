@@ -1,29 +1,33 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\NuGet.props" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net46;net48</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
-    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
     <Version>1.4.0</Version>
+
+    <RepositoryUrl>https://github.com/SanwaPrintings/root/</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
     <RootNamespace>DiffPlex.Wpf</RootNamespace>
     <AssemblyName>DiffPlex.Wpf</AssemblyName>
     <PackageTags>diff, wpf</PackageTags>
-    <Description>DiffPlex.Wpf is a WPF control library that allows you to programatically render visual text diffs in your application. It also provide a diff viewer control used in Windows Forms application.</Description>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
-    <ApplicationIcon>..\DiffPlex.ico</ApplicationIcon>
+    <Description>Removed System.Windows.Forms reference and 'net46, net48' target from original. DiffPlex.Wpf is a WPF control library that allows you to programatically render visual text diffs in your application.</Description>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Forms\**" />
+    <EmbeddedResource Remove="Forms\**" />
+    <None Remove="Forms\**" />
+    <Page Remove="Forms\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="..\License.txt" Link="License.txt" />
-    <Content Include="..\DiffPlex.ico" Link="DiffPlex.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DiffPlex\DiffPlex.csproj" />
+      <ProjectReference Include="..\DiffPlex\DiffPlex.csproj"  />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Icon.png" />
   </ItemGroup>
 
   <ItemGroup>
